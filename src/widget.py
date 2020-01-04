@@ -5,7 +5,7 @@
 @Author: louishsu
 @E-mail: is.louishsu@foxmail.com
 @Date: 2020-01-04 17:09:26
-@LastEditTime : 2020-01-04 20:46:26
+@LastEditTime : 2020-01-04 21:03:10
 @Update: 
 '''
 import os
@@ -213,7 +213,7 @@ class WidgetDetector(_Dialog):
 
 class WidgetVerifier(_Dialog):
 
-    _names = ['Thresh']
+    _names = ['Thresh', 'N(pass)']
 
     def __init__(self, parent=None):
         super(WidgetVerifier, self).__init__(parent)
@@ -225,7 +225,8 @@ class WidgetVerifier(_Dialog):
         self.setWindowTitle("Verifier")
 
         onLineEdits = dict(zip(self._names,[
-            self._onLineEditThresh_textChanged, 
+            self._onLineEditThresh_textChanged,
+            self._onLineEditNpass_textChanged,
         ]))
 
         x1, y1, w, h, gw, gh = 120, 80, 100, 25, 10, 5
@@ -238,6 +239,7 @@ class WidgetVerifier(_Dialog):
 
     # ----------------------- slots -----------------------
     def _onLineEditThresh_textChanged(self, text): self._params['Thresh']  = float(text)
+    def _onLineEditNpass_textChanged(self, text):  self._params['N(pass)']  = float(text)
 
     # ----------------- public functions ----------------
     def open(self):
