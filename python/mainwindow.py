@@ -327,13 +327,3 @@ class MainWindow(QMainWindow):
             self.statusBar().showMessage('特征保存失败，请输入用户名')
         
         self._timerStart()
-
-
-if __name__ == '__main__':
-
-    import sys
-    from PyQt5.QtWidgets import QApplication
-
-    a = QApplication(sys.argv)
-    w = MainWindow()
-    sys.exit(a.exec_())

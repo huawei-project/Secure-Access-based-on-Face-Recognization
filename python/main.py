@@ -5,7 +5,7 @@
 @Author: louishsu
 @E-mail: is.louishsu@foxmail.com
 @Date: 2020-01-04 16:29:49
-@LastEditTime : 2020-01-04 16:35:02
+@LastEditTime : 2020-01-05 20:34:49
 @Update: 
 '''
 import sys
@@ -17,3 +17,6 @@ def main():
     a = QApplication(sys.argv)
     w = MainWindow()
     sys.exit(a.exec_())
+
+if __name__ == '__main__':
+    main()
