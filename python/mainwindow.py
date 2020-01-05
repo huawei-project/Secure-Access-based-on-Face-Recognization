@@ -5,7 +5,7 @@
 @Author: louishsu
 @E-mail: is.louishsu@foxmail.com
 @Date: 2020-01-04 16:29:32
-@LastEditTime : 2020-01-05 17:04:47
+@LastEditTime : 2020-01-05 18:19:36
 @Update: 
 '''
 import os
@@ -89,7 +89,7 @@ class MainWindow(QMainWindow):
         self._pbSave.clicked[bool].connect(self._onPushButtonCamera_clicked)
 
         # ---------- 主窗口属性 ----------
-        self.setGeometry(0, 0, 580, 360)
+        self.setGeometry(0, 0, 485, 325)
         self.setWindowTitle("Secure Access")
         s, f = QDesktopWidget().screenGeometry(), self.geometry()
         self.move((s.width() - f.width()) / 2, (s.height() - f.height()) / 2)
@@ -188,6 +188,8 @@ class MainWindow(QMainWindow):
         allfeatures = dict()
 
         for name in os.listdir(self.SAVEDIR):
+
+            if name == '.gitignore': continue
 
             features = np.zeros(shape=(self._wgVerifier.nsave, self._wgVerifier.ndim), dtype=np.float)
             savedir  = os.path.join(self.SAVEDIR, name)
