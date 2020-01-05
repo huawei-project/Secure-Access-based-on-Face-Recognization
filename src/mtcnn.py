@@ -5,7 +5,7 @@
 @Author: louishsu
 @E-mail: is.louishsu@foxmail.com
 @Date: 2019-10-26 11:25:12
-@LastEditTime : 2020-01-04 16:24:47
+@LastEditTime : 2020-01-05 16:51:57
 @Update: 
 '''
 import os
@@ -176,7 +176,7 @@ class MtcnnDetector(object):
     Content:
 
     """
-    def __init__(self, min_face=20, thresh=[0.6, 0.7, 0.7], scale=0.79, stride=2, cellsize=12, use_cuda=True, ckpt='../ckpt'):
+    def __init__(self, min_face=20, thresh=[0.6, 0.7, 0.7], scale=0.79, stride=2, cellsize=12, use_cuda=False, ckpt='../ckpt'):
         
         self.min_face = min_face
         self.thresh = thresh
@@ -378,7 +378,7 @@ class MtcnnDetector(object):
         Returns:
             boxes:    {ndarray(n_boxes, 5)} x1, y1, x2, y2, score
             boxes_c:  {ndarray(n_boxes, 5)} x1, y1, x2, y2, score
-            landmark: None
+            landmark: {ndarray(n_boxes, 10)} x1, y1, x2, y2, ..., x5, y5
         """
         NETSIZE = 48
 

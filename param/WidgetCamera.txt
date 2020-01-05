@@ -1,4 +1,3 @@
 Index 0.0
 FPS 30.0
-Width 400.0
-Height 300.0
+Scale 0.5
