@@ -1,4 +1,4 @@
-#include "include/util.h"
+#include "util.h"
 
 IplImage *image_to_ipl(image im)
 {

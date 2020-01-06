@@ -16,7 +16,7 @@
 #include <list_c.h>
 #include <image.h>
 #include <activations.h>
-#include "include/util.h"
+#include "util.h"
 
 
 typedef struct bbox

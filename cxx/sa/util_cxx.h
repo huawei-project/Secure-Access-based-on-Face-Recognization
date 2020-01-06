@@ -5,7 +5,7 @@
 #include <opencv2/opencv.hpp>
 
 extern "C"{
-#include "include/util.h"
+#include "util.h"
 }
 
 using namespace cv;

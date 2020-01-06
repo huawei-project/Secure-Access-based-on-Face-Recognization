@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "string_view": "cpp"
+    }
+}

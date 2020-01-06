@@ -1,4 +1,4 @@
-#include "include/mtcnn.h"
+#include "mtcnn.h"
 
 // ================================================================================== //
 
@@ -80,8 +80,8 @@ API network* load_mtcnn_net(INPUT char* netname){
     char cfg[64];
     char weights[64];
     
-    sprintf(cfg, "../ModelFiles/cfg/%s.cfg", netname);
-    sprintf(weights, "../ModelFiles/weights/%s.weights", netname);
+    sprintf(cfg, "../../cfg/%s.cfg", netname);
+    sprintf(weights, "../../weights/%s.weights", netname);
     
     return load_network(cfg, weights, 0);
 }

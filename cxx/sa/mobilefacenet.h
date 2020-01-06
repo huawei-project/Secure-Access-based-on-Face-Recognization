@@ -9,9 +9,9 @@
 
 #include <opencv/cv.h>
 #include <darknet.h>
-#include "include/mtcnn.h"
-#include "include/util.h"
-#include "include/crop_align.h"
+#include "mtcnn.h"
+#include "util.h"
+#include "crop_align.h"
 
 #define H 112
 #define W 96

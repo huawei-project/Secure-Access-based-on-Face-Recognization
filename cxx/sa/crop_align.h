@@ -10,8 +10,7 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 #include <darknet.h>
-#include "include/mtcnn.h"
-#include "include/cp2form.h"
+#include "mtcnn.h"
 
 landmark initAligned();
 landmark initAlignedOffset();

@@ -1,11 +1,11 @@
 #include <parser.h>
 #include <activations.h>
-#include "include/mobilefacenet.h"
+#include "mobilefacenet.h"
 
 API network* load_mobilefacenet()
 {
-    network* net = load_network("../ModelFiles/cfg/mobilefacenet.cfg",
-                    "../ModelFiles/weights/mobilefacenet.weights", 0);
+    network* net = load_network("../../cfg/mobilefacenet.cfg",
+                    "../../weights/mobilefacenet.weights", 0);
     return net;
 }
 
