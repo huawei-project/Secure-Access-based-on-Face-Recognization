@@ -313,7 +313,7 @@ string MainWindow::cmpFeatures()
     string name = ""; int npass = -1;
     for(strint_map::iterator it = sim.begin(); it != sim.end(); it++){
         int num = it->second;
-        if ((num > parser->get<int>("npass")) && (num >= npass)){    // 滤除通过个数少于`npass`的
+        if ((num >= parser->get<int>("npass")) && (num > npass)){    // 滤除通过个数少于`npass`的
             name = it->first; npass = num;
         }
     }
