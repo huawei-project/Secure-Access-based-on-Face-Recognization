@@ -29,7 +29,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_timer_timeout()
+void MainWindow::slots_timer_timeout()
 {
     timerStop();
 
@@ -120,7 +120,7 @@ int MainWindow::parseCommand(int argc, char *argv[])
 
 int MainWindow::initCamera()
 {
-    timer = new QTimer(); connect(timer, SIGNAL(timeout()), this, SLOT(on_timer_timeout()));
+    timer = new QTimer(); connect(timer, SIGNAL(timeout()), this, SLOT(slots_timer_timeout()));
 
     frame = Mat::zeros(ui->labelFrame->height(), ui->labelFrame->width(), CV_8UC3);
     patch = Mat::zeros(ui->labelPatch->height(), ui->labelPatch->width(), CV_8UC3);

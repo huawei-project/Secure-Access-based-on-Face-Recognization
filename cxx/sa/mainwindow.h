@@ -51,8 +51,8 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_timer_timeout();                                    // 定时采集图片
-    void on_locker_timeout(){unlock(); setPatchStatus(0);}      // 验证锁
+    void slots_timer_timeout();                                    // 定时采集图片
+    void slots_locker_timeout(){unlock(); setPatchStatus(0);}      // 验证锁
     void on_pushButtonSave_clicked();                           // 保存特征
 
 private:
@@ -85,7 +85,7 @@ private:
     void showMatInLabel(Mat m, QLabel* label);
 
     // -------------- 若验证通过，则一段时间内不进行验证 --------------
-    int  initLocker(){locker = new QTimer(); connect(locker, SIGNAL(timeout()), this, SLOT(on_locker_timeout()));return 0;}
+    int  initLocker(){locker = new QTimer(); connect(locker, SIGNAL(timeout()), this, SLOT(slots_locker_timeout()));return 0;}
     int  deinitLocker(){if(isLocked())unlock(); delete locker;return 0;}
     int  lock(){locker->start(parser->get<int>("lock") * 1000);return 0;}
     int  unlock(){locker->stop();return 0;}
