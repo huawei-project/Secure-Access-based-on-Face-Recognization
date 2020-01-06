@@ -336,13 +336,14 @@ int MainWindow::initPin()
 {
     if(parser->get<int>("pin") < 0) return 1;
 
+    Py_Initialize();
     PyRun_SimpleString("import sys");
-    PyRun_SimpleString("")
-    PyRun_SimpleString
-    PyRun_SimpleString
-    PyRun_SimpleString
-    PyRun_SimpleString
-    PyRun_SimpleString
+    PyRun_SimpleString("sys.path.append('/opt/nvidia/jetson-gpio/lib/python/')");
+    PyRun_SimpleString("sys.path.append('/opt/nvidia/jetson-gpio/lib/python/Jetson/GPIO')");
+    PyRun_SimpleString("import Jetson.GPIO as GPIO");
+    PyRun_SimpleString("GPIO.setmode(GPIO.BOARD)");
+    PyRun_SimpleString("pin=" + parser->get<string>("pin"));
+    PyRun_SimpleString("GPIO.setup(pin, GPIO.OUT, initial=GPIO.HIGH)");
 
     return 0;
 }
@@ -351,7 +352,9 @@ int MainWindow::triggerPin()
 {
     if(parser->get<int>("pin") < 0) return 1;
 
-
+    PyRun_SimpleString("GPIO.output(pin, GPIO.LOW)");
+    sleep(1);
+    PyRun_SimpleString("GPIO.output(pin, GPIO.HIGH)");
 
     return 0;
 }
