@@ -34,7 +34,7 @@ void MainWindow::slots_timer_timeout()
     timerStop();
 
     getFrame();
-    howAboutThisFrame();
+    if(!cnt) howAboutThisFrame();
 
     showMatInLabel(frame, ui->labelFrame);
     showMatInLabel(patch, ui->labelPatch);
@@ -44,6 +44,8 @@ void MainWindow::slots_timer_timeout()
 
 void MainWindow::on_pushButtonSave_clicked()
 {
+    timerStop();
+
     string name = ui->lineEditName->text().toStdString();
     if (name.empty()){
         ui->statusBar->showMessage("请输入用户名！");
@@ -60,6 +62,8 @@ void MainWindow::on_pushButtonSave_clicked()
 
     updateFeatures(name, index);
     ui->statusBar->showMessage("特征已保存!");
+
+    timerStart();
 }
 
 void MainWindow::setPatchStatus(int status)
@@ -302,6 +306,7 @@ string MainWindow::cmpFeatures()
             float cosval = dot(feature, m.vals[i], DIM);    // 计算余弦值
             if(cosval > parser->get<float>("thresh"))       // 大于阈值，计数自增
                 sim[name] += 1;
+//            cout << name << cosval << endl;
         }
     }
 
@@ -309,7 +314,7 @@ string MainWindow::cmpFeatures()
     string name = ""; int npass = -1;
     for(strint_map::iterator it = sim.begin(); it != sim.end(); it++){
         int num = it->second;
-        if ((num > parser->get<int>("npass")) && (num > npass)){    // 滤除通过个数少于`npass`的
+        if ((num > parser->get<int>("npass")) && (num >= npass)){    // 滤除通过个数少于`npass`的
             name = it->first; npass = num;
         }
     }

@@ -43,11 +43,11 @@ HEADERS += \
         util_cxx.h
 
 ########################### OpenCV ###########################
-INCLUDEPATH += /usr/local/include\
-               /usr/local/include/opencv\
-               /usr/local/include/opencv2
+INCLUDEPATH += /usr/local/OpenCV3.4.6/include\
+               /usr/local/OpenCV3.4.6/include/opencv\
+               /usr/local/OpenCV3.4.6/include/opencv2
 
-LIBS += -L/usr/local/lib/ \
+LIBS += -L/usr/local/OpenCV3.4.6/lib/ \
         -lopencv_calib3d \
         -lopencv_core \
         -lopencv_dnn \
