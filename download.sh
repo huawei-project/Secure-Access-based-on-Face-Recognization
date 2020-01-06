@@ -18,4 +18,4 @@ wget -O weights/RNet.weights https://github.com/isLouisHsu/MTCNN_Darknet/release
 wget -O weights/ONet.weights https://github.com/isLouisHsu/MTCNN_Darknet/releases/download/v1.0/ONet.weights
 
 wget -O ckpt/MobileFacenet.pkl        https://github.com/isLouisHsu/MobileFaceNet_ArcFace_Darknet/blob/master/pretrained/MobileFacenet_best.pkl
-wget -O weights/MobileFacenet.weights https://github.com/isLouisHsu/Mobilefacenet_ArcFace_Darknet/blob/master/weights/mobilefacenet.weights
+wget -O weights/mobilefacenet.weights https://github.com/isLouisHsu/Mobilefacenet_ArcFace_Darknet/blob/master/weights/mobilefacenet.weights
