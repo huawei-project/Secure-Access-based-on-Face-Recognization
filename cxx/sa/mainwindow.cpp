@@ -9,8 +9,10 @@ MainWindow::MainWindow(int argc, char *argv[], QWidget *parent):
     if(parseCommand(argc, argv))
         return;
 
-    if(initCamera())
+    if(initCamera()) {
         ui->statusBar->showMessage("Can't open camera!", 3000);
+        return;
+    }
     initLocker();
     initDetect();
     initVerify();
