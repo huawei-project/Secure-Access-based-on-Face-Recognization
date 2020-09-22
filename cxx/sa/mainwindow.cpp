@@ -31,10 +31,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::slots_timer_timeout()
 {
+    static int cnt = 0;
+    cnt = (++cnt) % 5;
+
     timerStop();
 
     getFrame();
-    if(!cnt) howAboutThisFrame();
+    if(!cnt)howAboutThisFrame();
 
     showMatInLabel(frame, ui->labelFrame);
     showMatInLabel(patch, ui->labelPatch);
@@ -306,7 +309,7 @@ string MainWindow::cmpFeatures()
             float cosval = dot(feature, m.vals[i], DIM);    // 计算余弦值
             if(cosval > parser->get<float>("thresh"))       // 大于阈值，计数自增
                 sim[name] += 1;
-//            cout << name << cosval << endl;
+//             cout << name << cosval << endl;
         }
     }
 
@@ -314,7 +317,7 @@ string MainWindow::cmpFeatures()
     string name = ""; int npass = -1;
     for(strint_map::iterator it = sim.begin(); it != sim.end(); it++){
         int num = it->second;
-        if ((num > parser->get<int>("npass")) && (num >= npass)){    // 滤除通过个数少于`npass`的
+        if ((num >= parser->get<int>("npass")) && (num > npass)){    // 滤除通过个数少于`npass`的
             name = it->first; npass = num;
         }
     }
